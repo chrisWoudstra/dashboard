@@ -1,0 +1,35 @@
+.user {
+    background-color: #363636;
+    margin: 15px 15px 15px 15px;
+    height: 350px;
+    border-radius: 10px;
+    padding: 0px;
+    float:left;
+}
+
+.red {
+    color: #d15851;
+}
+
+.white {
+    color: white;
+}
+
+.avatar1, .avatar2 {
+    width: 100%;
+}
+
+.avatar1 img, .avatar2 img {
+    border-radius: 50%;
+}
+
+.avatar1 {
+    margin-top: 50px;
+}
+
+.mode1, .mode2 {
+    margin-top: 10px;
+    font-size: 30px;
+    cursor:pointer;
+    color: #d15851;
+}

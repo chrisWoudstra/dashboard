@@ -1,0 +1,30 @@
+/* red: d15851 */
+/* light black: #363636 */
+/* dark black: #242424 */
+
+.panelHeader {
+    color: #d15851;
+    height: 2.5rem;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #d15851;
+    width: 100%;
+}
+
+.panelIcon {
+    float:left;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.panelTitle {
+    line-height: 2.5rem;
+}
+
+.panelAction {
+    float: right;
+    font-size: 28px;
+    margin-right: 10px;
+    color: mediumseagreen;
+    cursor: pointer;
+}

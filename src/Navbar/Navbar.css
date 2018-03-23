@@ -1,0 +1,39 @@
+/* red: #d15851 */
+/* light black: #363636 */
+/* dark black: #242424 */
+
+.topNav {
+    height: 4rem;
+    background-color: #363636;
+}
+
+.topNav div {
+    display: inline-block;
+}
+.logo {
+    height: 4rem;
+    width: 100px;
+    border-right: 3px solid #242424;
+    float: left;
+}
+
+.logo img {
+    margin-top: 10px;
+}
+
+.dateTime {
+    color: #d15851;
+    padding-top: 8px;
+}
+
+.power {
+    height: 4rem;
+    width: 85px;
+    float: right;
+    border-left: 3px solid #242424;
+    text-align: center;
+    color: #d15851;
+    font-size: 40px;
+    line-height: 4rem;
+    cursor: pointer;
+}
