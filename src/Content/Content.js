@@ -11,7 +11,7 @@ class Content extends Component {
         professionalMode: false
     };
 
-    toggleMode = () => {
+    toggleModeHandler = () => {
         console.log('toggleMode');
         const currentMode = this.state.professionalMode;
         this.setState({ professionalMode: !currentMode});
@@ -23,7 +23,7 @@ class Content extends Component {
 
             <div className="container-fluid">
                 <div className="content">
-                    <User mode={this.state.professionalMode} toggle={this.toggleMode.bind(this)}/>
+                    <User mode={this.state.professionalMode} toggle={this.toggleModeHandler.bind(this)}/>
                     <ToDo mode={this.state.professionalMode}/>
                 </div>
             </div>

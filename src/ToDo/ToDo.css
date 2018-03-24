@@ -5,4 +5,39 @@
     border-radius: 10px;
     padding: 0px;
     float:left;
+    text-align: left;
+}
+
+.toDo div {
+    display: block;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    padding-left: 0px;
+}
+
+.deleteTask {
+    float: right;
+    background-color: #d15851;
+    color: #eeeeee;
+    height: 100%;
+    width: 30px;
+    float:right;
+    text-align:center;
+}
+
+.listItem {
+    color: #eeeeee;
+    border-bottom: 1px solid #242424;
+    height: 2.5rem;
+    line-height:2.5rem;
+    cursor:pointer;
+    padding-left: 20px;
+    font-size: 14px;
 }

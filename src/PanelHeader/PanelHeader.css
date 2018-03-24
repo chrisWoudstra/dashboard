@@ -9,6 +9,7 @@
     font-weight: bold;
     border-bottom: 2px solid #d15851;
     width: 100%;
+    text-align: center;
 }
 
 .panelIcon {
@@ -23,8 +24,8 @@
 
 .panelAction {
     float: right;
-    font-size: 28px;
+    font-size: 26px;
     margin-right: 10px;
-    color: mediumseagreen;
+    color: #eeeeee;
     cursor: pointer;
 }
