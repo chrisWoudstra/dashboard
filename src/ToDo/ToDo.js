@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
-
+// components
 import PanelHeader from '../PanelHeader/PanelHeader';
 import Task from './Task';
-
+// data
+import { professionalTasks } from "../Data/Professional/Tasks";
+import { personalTasks } from "../Data/Personal/Tasks";
+// styling
+import './../Base.css';
 import './ToDo.css';
 
 class ToDo extends Component {
 
     state = {
         // TODO: fetch tasks from server
-        professionalTasks: [
-            { id: 'ndj4a', name: 'Balance 502 Report'},
-            { id: 'h31mf', name: 'Refactor 502.js'},
-            { id: 'p1o91', name: 'Make 502 dropdown dynamic'}
-        ],
-        personalTasks: [
-            { id: 'asfa1', name: 'Laundry' },
-            { id: 'ad98d', name: 'Run' },
-            { id: 'alcn6', name: 'Get new tires'}
-        ]
+        professionalTasks: professionalTasks,
+        personalTasks: personalTasks
     };
 
     deleteTaskHandler = (taskIndex) => {
@@ -38,14 +34,16 @@ class ToDo extends Component {
        const personalTitle = 'To Do';
        const professionalTitle = 'Tasks';
        const icon = 'fa fa-check-circle';
-       const action = 'fa fa-plus';
 
        let mode = null;
 
+       let numProTasks = this.state.professionalTasks.length;
+       let numPersonalTasks = this.state.personalTasks.length;
+
        if (this.props.mode) {
            mode = (
-               <div className="fullWidth">
-                   <PanelHeader title={professionalTitle} icon={icon} action={action}/>
+               <div className="relative fullWidth">
+                   <PanelHeader title={professionalTitle} icon={icon} action={numProTasks}/>
                    <ul className="taskList">
                        {this.state.professionalTasks.map((task, index) => {
                            return <Task
@@ -58,8 +56,8 @@ class ToDo extends Component {
            );
        } else {
            mode = (
-               <div className="fullWidth">
-                   <PanelHeader title={personalTitle} icon={icon} action={action}/>
+               <div className="relative fullWidth">
+                   <PanelHeader title={personalTitle} icon={icon} action={numPersonalTasks}/>
                    <ul className="taskList">
                        {this.state.personalTasks.map((task, index) => {
                            return <Task
@@ -68,6 +66,9 @@ class ToDo extends Component {
                                name={task.name}/>
                        })}
                    </ul>
+                   <div className="newTask">
+
+                   </div>
                </div>
 
            );
@@ -75,7 +76,7 @@ class ToDo extends Component {
 
 
         return (
-            <div className="toDo col-md-3">
+            <div className="toDo col-md-2">
                 { mode }
             </div>
         )

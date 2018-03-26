@@ -1,4 +1,4 @@
-.toDo {
+.events {
     background-color: #363636;
     margin: 15px 15px 15px 15px;
     height: 350px;
@@ -8,11 +8,7 @@
     text-align: left;
 }
 
-.toDo div {
-    display: block;
-}
-
-.deleteTask {
+.deleteEvent {
     float: right;
     background-color: #d15851;
     color: #eeeeee;
@@ -28,6 +24,10 @@
     height: 2.5rem;
     line-height:2.5rem;
     cursor:pointer;
-    padding-left: 20px;
+    padding-left: 10px;
     font-size: 14px;
+}
+
+.startDate {
+    margin-right: 15px;
 }

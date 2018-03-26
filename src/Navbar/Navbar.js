@@ -24,10 +24,10 @@ class Navbar extends Component {
                     <img src={logo} height="40px" alt="Logo"/>
                 </div>
                 <div className="dateTime">
-                    <i className="fa fa-calendar"></i> {this.state.currentDate}
-                    <p><i className="fa fa-clock-o"></i> {this.state.currentTime}</p>
+                    <i className="red fa fa-calendar"></i>&nbsp;&nbsp;{this.state.currentDate}
+                    <p><i className="red fa fa-clock-o"></i>&nbsp;&nbsp;{this.state.currentTime}</p>
                 </div>
-                <div className="power">
+                <div className="power" onClick={this.props.logout}>
                     <i className="fa fa-power-off"></i>
                 </div>
             </nav>

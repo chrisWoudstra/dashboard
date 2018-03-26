@@ -1,0 +1,37 @@
+.red {
+    color: #d15851;
+}
+
+.white {
+    color: #eeeeee;
+}
+
+.gray {
+    color: darkgray;
+}
+
+.textLeft {
+    text-align: left;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    padding-left: 0px;
+}
+
+.relative {
+    position: relative;
+}
+
+button {
+    border:none;
+}
+
+button:focus {
+    outline:none;
+}
