@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Campton-Light';
+    src: url('../fonts/campton-light.woff2') format('woff2'),
+         url('../fonts/campton-light.woff') format('woff'),
+         url('../fonts/campton-light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Campton-Bold';
+    src: url('../fonts/campton-bold.woff2') format('woff2'),
+         url('../fonts/campton-bold.woff') format('woff'),
+         url('../fonts/campton-bold.ttf') format('truetype');
+}
+
+.camptonLight {
+    font-family: 'Campton-Light';
+}
+
+.camptonBold {
+    font-family: 'Campton-Bold';
+    text-transform: uppercase;
+}
+
+.red {
+    color: #d15851;
+}
+
+.white {
+    color: #eeeeee;
+}
+
+.gray {
+    color: darkgray;
+}
+
+.textLeft {
+    text-align: left;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    padding-left: 0px;
+}
+
+.relative {
+    position: relative;
+}
+
+button {
+    border:none;
+}
+
+button:focus {
+    outline:none;
+}
+
+.floatRight {
+    float: right;
+}

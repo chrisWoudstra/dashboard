@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
-import Navbar from './Navbar/Navbar';
-import Content from './Content/Content';
-import logo from './logo.svg';
+import Navbar from './Components/Navbar/Navbar';
+import Content from './Components/Content/Content';
+import logo from './Assets/images/logo.svg';
+
+import Radium from 'radium';
 
 import './App.css';
-import './Base.css';
+import './Assets/styles/Base.css';
 
 class App extends Component {
 
@@ -40,4 +42,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Radium(App);

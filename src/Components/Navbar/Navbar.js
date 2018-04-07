@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
 
-import logo from './../logo.svg';
+import logo from '../../Assets/images/logo.svg';
 import './Navbar.css';
 
 class Navbar extends Component {

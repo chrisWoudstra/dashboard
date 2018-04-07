@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import PanelHeader from '../PanelHeader/PanelHeader';
 import Event from './Event';
 //data
-import { professionalEvents } from "../Data/Professional/Events";
-import { personalEvents } from "../Data/Personal/Events";
+import { professionalEvents } from "../../Data/Professional/Events";
+import { personalEvents } from "../../Data/Personal/Events";
 //styling
-import './../Base.css';
+import '../../Assets/styles/Base.css';
 import './Events.css';
 
 class Events extends Component {
@@ -41,7 +41,7 @@ class Events extends Component {
         if (this.props.mode) {
             mode = (
                 <div className="relative fullWidth">
-                    <PanelHeader title={title} icon={icon} action={numProEvents}/>
+                    <PanelHeader title={title} icon={icon} count={numProEvents}/>
                     <ul className="taskList">
                         {this.state.professionalEvents.map((event, index) => {
                             return <Event
@@ -57,7 +57,7 @@ class Events extends Component {
         } else {
             mode = (
                 <div className="relative fullWidth">
-                    <PanelHeader title={title} icon={icon} action={numPersonalEvents}/>
+                    <PanelHeader title={title} icon={icon} count={numPersonalEvents}/>
                     <ul className="eventList">
                         {this.state.personalEvents.map((event, index) => {
                             return <Event

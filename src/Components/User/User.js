@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import headshot from './../headshot.jpg';
-import avatar from './../avatar.png';
+import headshot from '../../Assets/images/headshot.jpg';
+import avatar from '../../Assets/images/avatar.png';
 
-import './../Base.css';
+import '../../Assets/styles/Base.css';
 import './User.css';
 
 class User extends Component {
