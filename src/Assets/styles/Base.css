@@ -20,12 +20,30 @@
     text-transform: uppercase;
 }
 
+input[type=text] {
+    background-color: #363636;
+    border: 1px solid #d15851;
+    color: darkgrey;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-indent: 10px;
+    border-right: none;
+}
+
+input:focus{
+    outline: none;
+}
+
 .red {
     color: #d15851;
 }
 
 .white {
     color: #eeeeee;
+}
+
+.green {
+    color: mediumseagreen;
 }
 
 .gray {

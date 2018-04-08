@@ -12,7 +12,16 @@
     display: block;
 }
 
-.deleteTask {
+.taskAction {
+    float: right;
+    height: 100%;
+    width: 30px;
+    float:right;
+    text-align:center;
+    font-size: 20px;
+}
+
+.Task {
     float: right;
     background-color: #d15851;
     color: #eeeeee;
@@ -30,4 +39,38 @@
     cursor:pointer;
     padding-left: 20px;
     font-size: 14px;
+}
+
+.exitModal {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: #d15851;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modalTitle {
+    margin-bottom: 20px;
+    text-indent: 20px;
+}
+
+.todoInput {
+    width: 230px;
+}
+
+.addTodo {
+    background-color: #363636;
+    border: 1px solid darkgrey;
+    color: darkgrey;
+    height: 28px;
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 16px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.addTodo:hover {
+    background-color: #d15851;
 }

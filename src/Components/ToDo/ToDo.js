@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 // components
 import PanelHeader from '../PanelHeader/PanelHeader';
@@ -17,17 +16,21 @@ class ToDo extends Component {
         // TODO: fetch tasks from server
         professionalTasks: professionalTasks,
         personalTasks: personalTasks,
-        modalIsOpen: true
+        modalIsOpen: false,
+        inputValue: ''
     };
 
-    completeTaskHandler = (taskIndex) => {
+    toggleCompleteHandler = (taskIndex) => {
+
         if (this.props.mode) {
             const tasks = [...this.state.professionalTasks];
-            tasks.splice(taskIndex, 1);
+            const status = tasks[taskIndex].completed;
+            tasks[taskIndex].completed = !status;
             this.setState({ professionalTasks: tasks });
         } else {
             const tasks = [...this.state.personalTasks];
-            tasks.splice(taskIndex, 1);
+            const status = tasks[taskIndex].completed;
+            tasks[taskIndex].completed = !status;
             this.setState({ personalTasks: tasks });
         }
     };
@@ -39,6 +42,30 @@ class ToDo extends Component {
         } else {
             this.setState({ personalTasks: tasks });
         }
+    };
+
+    handleChange = (event) => {
+        this.setState({ inputValue: event.target.value });
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const object = {
+            id: this.makeId(),
+            name: this.state.inputValue,
+            completed: false
+        };
+        if (this.props.mode) {
+            const tasks = [...this.state.professionalTasks];
+            tasks.push(object);
+            this.setState({ professionalTasks: tasks });
+        } else {
+            const tasks = [...this.state.personalTasks];
+            tasks.push(object);
+            this.setState({ personalTasks: tasks });
+        }
+        this.setState({inputValue: ''});
+        this.closeModal();
     };
 
     openModal = () => {
@@ -54,13 +81,19 @@ class ToDo extends Component {
     };
 
     afterOpenModal = () => {
-        Modal.defaultStyles.overlay.backgroundColor = '#242424';
+        Modal.defaultStyles.overlay.backgroundColor = 'rgb(36,36,36,0.9)';
+    };
+
+    // generate temp id - TODO: handle with db
+    makeId = () => {
+        return Math.random().toString(36).substr(2, 5);
     };
 
     render() {
 
        const action1 = 'fa fa-plus';
        const action2 = 'fa fa-trash';
+       const title = 'To Do';
 
        const modalStyles = {
            content : {
@@ -71,22 +104,22 @@ class ToDo extends Component {
                marginRight           : '-50%',
                transform             : 'translate(-50%, -50%)',
                backgroundColor       : '#363636',
-               border                : 'none'
+               border                : 'none',
+               width                 : '300px',
+               borderRadius          : '10px'
            }
        };
 
-       let title = null;
        let count = null;
        let mappedObject = null;
 
        if (this.props.mode) {
            mappedObject = this.state.professionalTasks;
            count = mappedObject.length;
-           title = 'Tasks';
        } else {
            mappedObject = this.state.personalTasks;
            count = mappedObject.length;
-           title = 'To Do';}
+       }
 
        return (
            <div className="toDo col-md-2">
@@ -102,8 +135,9 @@ class ToDo extends Component {
                        {mappedObject.map((task, index) => {
                            return <Task
                                key={task.id}
-                               click={this.completeTaskHandler.bind(this, index)}
-                               name={task.name}/>
+                               click={this.toggleCompleteHandler.bind(this, index)}
+                               name={task.name}
+                               completed={task.completed}/>
                        })}
                    </ul>
                    <Modal
@@ -112,11 +146,10 @@ class ToDo extends Component {
                        onRequestClose={this.closeModal.bind(this)}
                        style={modalStyles}
                    >
-                       <h4 className="red camptonBold"><span className="gray">New</span> { title }</h4>
-                       <span onClick={this.closeModal.bind(this)}><i className="fa fa-times exitModal"></i></span>
-                       <div>I am a modal</div>
-                       <form>
-                           <input />
+                       <h4 className="gray camptonBold modalTitle"><span className="red">New</span> { title }</h4>
+                       <span className="exitModal" onClick={this.closeModal.bind(this)}><i className="fa fa-times"></i></span>
+                       <form onSubmit={this.handleSubmit}>
+                           <input autoFocus type="text" className="todoInput" onChange={this.handleChange}/><button type="submit" className="addTodo">+</button>
                        </form>
                    </Modal>
                </div>

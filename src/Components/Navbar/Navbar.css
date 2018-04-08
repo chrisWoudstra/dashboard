@@ -37,3 +37,7 @@
     line-height: 4rem;
     cursor: pointer;
 }
+
+.amPm {
+    font-size: 24px;
+}

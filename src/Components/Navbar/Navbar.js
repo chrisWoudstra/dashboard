@@ -7,8 +7,9 @@ import './Navbar.css';
 class Navbar extends Component {
 
     state = {
-        currentDate: Moment().format('dddd, MMMM Qo'),
-        currentTime: Moment().format('h:mma')
+        hour: Moment().format('h'),
+        minute: Moment().format('mm'),
+        amPm: Moment().format('a')
     };
 
     updateTime = () => {
@@ -24,8 +25,11 @@ class Navbar extends Component {
                     <img src={logo} height="40px" alt="Logo"/>
                 </div>
                 <div className="dateTime">
-                    <i className="red fa fa-calendar"></i>&nbsp;&nbsp;{this.state.currentDate}
-                    <p><i className="red fa fa-clock-o"></i>&nbsp;&nbsp;{this.state.currentTime}</p>
+                    <h1 className="camptonBold">
+                        <span className="red">{this.state.hour}</span>
+                        <span className="gray">{this.state.minute}</span>
+                        <span className="red amPm"> {this.state.amPm}</span>
+                    </h1>
                 </div>
                 <div className="power" onClick={this.props.logout}>
                     <i className="fa fa-power-off"></i>
