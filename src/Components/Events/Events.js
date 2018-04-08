@@ -35,7 +35,7 @@ class Events extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.eventName != '' && this.state.eventDate != '') {
+        if (this.state.eventName && this.state.eventDate) {
 
         }
     };
