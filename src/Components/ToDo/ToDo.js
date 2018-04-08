@@ -34,15 +34,6 @@ class ToDo extends Component {
         }
     };
 
-    // refreshTasksHandler = () => {
-    //     const tasks = [];
-    //     if (this.props.mode) {
-    //         this.setState({ professionalTasks: tasks });
-    //     } else {
-    //         this.setState({ personalTasks: tasks });
-    //     }
-    // };
-
     refreshTasksHandler = () => {
         if (this.props.mode) {
             const tasks = [...this.state.professionalTasks];
@@ -56,7 +47,7 @@ class ToDo extends Component {
     };
 
     handleChange = (event) => {
-        this.setState({ inputValue: event.target.value });
+        this.setState({ inputValue: event.target.value })
     };
 
     handleSubmit = (event) => {
@@ -141,8 +132,8 @@ class ToDo extends Component {
                        title={title}
                        action1={action1}
                        action2={action2}
-                       newClick={this.openModal.bind(this)}
-                       clearClick={this.refreshTasksHandler.bind(this)}
+                       click1={this.openModal.bind(this)}
+                       click2={this.refreshTasksHandler.bind(this)}
                        count={count}/>
                    <ul className="taskList">
                        {mappedArray.map((task, index) => {

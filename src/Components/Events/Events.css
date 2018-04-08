@@ -31,3 +31,53 @@
 .startDate {
     margin-right: 15px;
 }
+
+.exitModal {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #d15851;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modalTitle {
+    margin-bottom: 20px;
+    text-indent: 20px;
+}
+
+.customInput {
+    width: 220px;
+    margin-bottom: 10px;
+}
+
+.inputAddon {
+    background-color: #363636;
+    border: 1px solid darkgrey;
+    color: darkgrey;
+    height: 28px;
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 16px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.submitDiv {
+    margin: 10px auto 0 auto;
+    height: 32px;
+    width: 110px;
+}
+
+.submitBtn {
+    font-family: 'Campton-Bold';
+    text-transform: uppercase;
+    background-color: #363636;
+    border-radius: 15px;
+    border: 2px solid #d15851;
+    color: #a9a9a9;
+    cursor: pointer;
+    padding-top: 4px;
+    text-align:center;
+    width: 106px;
+}
