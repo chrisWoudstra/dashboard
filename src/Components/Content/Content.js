@@ -4,7 +4,7 @@ import User from '../User/User';
 import ToDo from '../ToDo/ToDo';
 import Events from '../Events/Events';
 
-import './Content.css';
+import classes from './Content.css';
 
 class Content extends Component {
 
@@ -22,7 +22,7 @@ class Content extends Component {
         return (
 
             <div className="container-fluid">
-                <div className="content">
+                <div className={classes.content}>
                     <User mode={this.state.professionalMode} toggle={this.toggleModeHandler.bind(this)}/>
                     <ToDo mode={this.state.professionalMode}/>
                     <Events mode={this.state.professionalMode}/>

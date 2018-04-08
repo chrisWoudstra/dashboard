@@ -6,8 +6,7 @@ import logo from './Assets/images/logo.svg';
 
 import Radium from 'radium';
 
-import './App.css';
-import './Assets/styles/Base.css';
+import classes from './App.css';
 
 class App extends Component {
 
@@ -24,17 +23,17 @@ class App extends Component {
 
         if (this.state.loggedIn) {
             return (
-                <div className="app">
+                <div className={classes.app}>
                     <Navbar logout={this.loginHandler.bind(this)}/>
                     <Content/>
                 </div>
             );
         } else {
             return (
-                <div className="app">
-                    <div className="mainLogo">
+                <div className={classes.app}>
+                    <div className={classes.mainLogo}>
                         <img src={logo} height="200px" alt="Logo"/>
-                        <button className="enterButton" onClick={this.loginHandler}>Go</button>
+                        <button className={classes.enterButton} onClick={this.loginHandler}>Go</button>
                     </div>
                 </div>
             );

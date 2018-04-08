@@ -8,15 +8,15 @@ import Event from './Event';
 import { professionalEvents } from "../../Data/Professional/Events";
 import { personalEvents } from "../../Data/Personal/Events";
 //styling
-import '../../Assets/styles/Base.css';
-import './Events.css';
+import baseClasses from '../../Assets/styles/Base.css';
+import classes from './Events.css';
 
 class Events extends Component {
 
     state = {
         personalEvents: personalEvents,
         professionalEvents: professionalEvents,
-        modalIsOpen: true,
+        modalIsOpen: false,
         eventName: null,
         eventDate: Moment().format('MM/DD/YYYY')
     };
@@ -89,8 +89,8 @@ class Events extends Component {
 
 
         return (
-            <div className="events col-md-3">
-                <div className="relative fullWidth">
+            <div className={[classes.events, 'col-md-3'].join(' ')}>
+                <div className={[baseClasses.relative, baseClasses.fullWidth].join(' ')}>
                     <PanelHeader
                         title={title}
                         action1={action1}
@@ -112,19 +112,21 @@ class Events extends Component {
                         onRequestClose={this.closeModal.bind(this)}
                         style={modalStyles}
                     >
-                        <h4 className="gray camptonBold modalTitle"><span className="red">New</span> Event</h4>
-                        <span className="exitModal" onClick={this.closeModal.bind(this)}><i className="fa fa-times"></i></span>
+                        <h4 className={[classes.modalTitle, baseClasses.gray, baseClasses.camptonBold].join(' ')}>
+                            <span className={baseClasses.red}>New</span> Event
+                        </h4>
+                        <span className={classes.exitModal} onClick={this.closeModal.bind(this)}><i className="fa fa-times"></i></span>
                         <form onSubmit={this.handleSubmit}>
-                            <input type="text" autoFocus className="customInput" value={this.state.eventName} placeholder="Some Event" onChange={this.handleNameChange}/>
-                            <button type="button" className="inputAddon">
+                            <input type="text" autoFocus className={classes.customInput} value={this.state.eventName} placeholder="Some Event" onChange={this.handleNameChange}/>
+                            <button type="button" className={classes.inputAddon}>
                                 <i className="fa fa-tag"></i>
                             </button>
-                            <input type="text" className="customInput" value={this.state.eventDate} onChange={this.handleDateChange}/>
-                            <button type="button" className="inputAddon">
+                            <input type="text" className={classes.customInput} value={this.state.eventDate} onChange={this.handleDateChange}/>
+                            <button type="button" className={classes.inputAddon}>
                                 <i className="fa fa-calendar"></i>
                             </button>
-                            <div className="submitDiv">
-                                <button type="submit" className="submitBtn">Save</button>
+                            <div className={classes.submitDiv}>
+                                <button type="submit" className={classes.submitBtn}>Save</button>
                             </div>
                         </form>
                     </Modal>

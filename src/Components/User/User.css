@@ -27,20 +27,23 @@
     color: #d15851;
 }
 
-.personalMargin {
+.personal {
     margin-left: 23px;
+    color: white;
+    text-align: left;
 }
 
 .userIcon {
-    position:absolute;
-    top:0px;
     left:10px;
-    font-size: 24px;
 }
 
 .settingsIcon {
-    position:absolute;
-    top:0;
     right:10px;
-    font-size:24px;
+}
+
+.userIcon, .settingsIcon {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    font-size: 24px;
 }

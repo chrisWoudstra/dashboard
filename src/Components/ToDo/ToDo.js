@@ -7,8 +7,8 @@ import Task from './Task';
 import { professionalTasks } from "../../Data/Professional/Tasks";
 import { personalTasks } from "../../Data/Personal/Tasks";
 // styling
-import '../../Assets/styles/Base.css';
-import './ToDo.css';
+import baseClasses from '../../Assets/styles/Base.css';
+import classes from './ToDo.css';
 
 class ToDo extends Component {
 
@@ -126,8 +126,8 @@ class ToDo extends Component {
        }
 
        return (
-           <div className="toDo col-md-2">
-               <div className="relative fullWidth">
+           <div className={[classes.toDo, 'col-md-2'].join(' ')}>
+               <div className={[baseClasses.relative, baseClasses.fullWidth].join(' ')}>
                    <PanelHeader
                        title={title}
                        action1={action1}
@@ -135,7 +135,7 @@ class ToDo extends Component {
                        click1={this.openModal.bind(this)}
                        click2={this.refreshTasksHandler.bind(this)}
                        count={count}/>
-                   <ul className="taskList">
+                   <ul>
                        {mappedArray.map((task, index) => {
                            return <Task
                                key={task.id}
@@ -150,10 +150,13 @@ class ToDo extends Component {
                        onRequestClose={this.closeModal.bind(this)}
                        style={modalStyles}
                    >
-                       <h4 className="gray camptonBold modalTitle"><span className="red">New</span> { title }</h4>
-                       <span className="exitModal" onClick={this.closeModal.bind(this)}><i className="fa fa-times"></i></span>
+                       <h4 className={[baseClasses.gray, baseClasses.camptonBold, classes.modalTitle].join(' ')}>
+                           <span className={baseClasses.red}>New</span> { title }
+                       </h4>
+                       <span className={classes.exitModal} onClick={this.closeModal.bind(this)}><i className="fa fa-times"></i></span>
                        <form onSubmit={this.handleSubmit}>
-                           <input autoFocus type="text" className="todoInput" onChange={this.handleChange}/><button type="submit" className="addTodo">+</button>
+                           <input autoFocus type="text" className={classes.todoInput} onChange={this.handleChange}/>
+                           <button type="submit" className={classes.addTodo}>+</button>
                        </form>
                    </Modal>
                </div>

@@ -1,19 +1,20 @@
 import React from 'react';
 
-import './ToDo.css';
+import classes from './ToDo.css';
+import baseClasses from '../../Assets/styles/Base.css';
 
 const Task = ( props ) => {
 
     let action = null;
 
     if (props.completed) {
-        action = <span className="taskAction completedTask" onClick={props.click}><i className="fa fa-check green"></i></span>;
+        action = <span className={[classes.taskAction, baseClasses.green].join(' ')} onClick={props.click}><i className="fa fa-check"></i></span>;
     } else {
-        action = <span className="taskAction incompleteTask" onClick={props.click}><i className="fa fa-circle-o red"></i></span>;
+        action = <span className={[classes.taskAction, baseClasses.red].join(' ')} onClick={props.click}><i className="fa fa-circle-o"></i></span>;
     }
 
     return (
-        <li className="listItem">
+        <li className={classes.listItem}>
             <span>{props.name}</span>
             { action }
         </li>
