@@ -11,7 +11,7 @@ const Event = ( props ) => {
         <li className="listItem">
             <span className="startDate red">{ start }</span>
             <span>{props.name}</span>
-            <span className="deleteEvent" onClick={props.click}><i className="fa fa-times"></i></span>
+            <span className="viewEvent" onClick={props.click}><i className="fa fa-edit"></i></span>
         </li>
     );
 };

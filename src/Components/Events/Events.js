@@ -30,7 +30,7 @@ class Events extends Component {
 
     render() {
 
-        const title = 'Upcoming Events';
+        const title = 'Events';
         const icon = 'fa fa-calendar';
 
         let numPersonalEvents = this.state.personalEvents.length;

@@ -14,7 +14,9 @@ class Navbar extends Component {
 
     updateTime = () => {
         this.setState({
-            currentTime: Moment().format('h:mma')
+            hour: Moment().format('h'),
+            minute: Moment().format('mm'),
+            amPm: Moment().format('a')
         })
     };
 

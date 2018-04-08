@@ -21,7 +21,6 @@ class ToDo extends Component {
     };
 
     toggleCompleteHandler = (taskIndex) => {
-
         if (this.props.mode) {
             const tasks = [...this.state.professionalTasks];
             const status = tasks[taskIndex].completed;
@@ -35,12 +34,24 @@ class ToDo extends Component {
         }
     };
 
-    clearTasksHandler = () => {
-        const tasks = [];
+    // refreshTasksHandler = () => {
+    //     const tasks = [];
+    //     if (this.props.mode) {
+    //         this.setState({ professionalTasks: tasks });
+    //     } else {
+    //         this.setState({ personalTasks: tasks });
+    //     }
+    // };
+
+    refreshTasksHandler = () => {
         if (this.props.mode) {
-            this.setState({ professionalTasks: tasks });
+            const tasks = [...this.state.professionalTasks];
+            const filteredTasks = tasks.filter(task => !task.completed);
+            this.setState({ professionalTasks: filteredTasks });
         } else {
-            this.setState({ personalTasks: tasks });
+            const tasks = [...this.state.personalTasks];
+            const filteredTasks = tasks.filter(task => !task.completed);
+            this.setState({ personalTasks: filteredTasks });
         }
     };
 
@@ -50,22 +61,24 @@ class ToDo extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const object = {
-            id: this.makeId(),
-            name: this.state.inputValue,
-            completed: false
-        };
-        if (this.props.mode) {
-            const tasks = [...this.state.professionalTasks];
-            tasks.push(object);
-            this.setState({ professionalTasks: tasks });
-        } else {
-            const tasks = [...this.state.personalTasks];
-            tasks.push(object);
-            this.setState({ personalTasks: tasks });
+        if (this.state.inputValue != '') {
+            const object = {
+                id: this.makeId(),
+                name: this.state.inputValue,
+                completed: false
+            };
+            if (this.props.mode) {
+                const tasks = [...this.state.professionalTasks];
+                tasks.push(object);
+                this.setState({ professionalTasks: tasks });
+            } else {
+                const tasks = [...this.state.personalTasks];
+                tasks.push(object);
+                this.setState({ personalTasks: tasks });
+            }
+            this.setState({inputValue: ''});
+            this.closeModal();
         }
-        this.setState({inputValue: ''});
-        this.closeModal();
     };
 
     openModal = () => {
@@ -92,7 +105,7 @@ class ToDo extends Component {
     render() {
 
        const action1 = 'fa fa-plus';
-       const action2 = 'fa fa-trash';
+       const action2 = 'fa fa-refresh';
        const title = 'To Do';
 
        const modalStyles = {
@@ -111,14 +124,14 @@ class ToDo extends Component {
        };
 
        let count = null;
-       let mappedObject = null;
+       let mappedArray = null;
 
        if (this.props.mode) {
-           mappedObject = this.state.professionalTasks;
-           count = mappedObject.length;
+           mappedArray = this.state.professionalTasks;
+           count = mappedArray.length;
        } else {
-           mappedObject = this.state.personalTasks;
-           count = mappedObject.length;
+           mappedArray = this.state.personalTasks;
+           count = mappedArray.length;
        }
 
        return (
@@ -129,10 +142,10 @@ class ToDo extends Component {
                        action1={action1}
                        action2={action2}
                        newClick={this.openModal.bind(this)}
-                       clearClick={this.clearTasksHandler.bind(this)}
+                       clearClick={this.refreshTasksHandler.bind(this)}
                        count={count}/>
                    <ul className="taskList">
-                       {mappedObject.map((task, index) => {
+                       {mappedArray.map((task, index) => {
                            return <Task
                                key={task.id}
                                click={this.toggleCompleteHandler.bind(this, index)}

@@ -8,14 +8,14 @@
     text-align: left;
 }
 
-.deleteEvent {
+.viewEvent {
     float: right;
-    background-color: #d15851;
-    color: #eeeeee;
+    color: #d15851;
     height: 100%;
     width: 30px;
     float:right;
     text-align:center;
+    font-size: 22px;
 }
 
 .listItem {
