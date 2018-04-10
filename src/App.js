@@ -4,8 +4,6 @@ import Navbar from './Components/Navbar/Navbar';
 import Content from './Components/Content/Content';
 import logo from './Assets/images/logo.svg';
 
-import Radium from 'radium';
-
 import classes from './App.css';
 
 class App extends Component {
@@ -21,24 +19,32 @@ class App extends Component {
 
     render() {
 
+        let page = null;
+
         if (this.state.loggedIn) {
-            return (
-                <div className={classes.app}>
+            page = (
+                <div>
                     <Navbar logout={this.loginHandler.bind(this)}/>
                     <Content/>
                 </div>
             );
         } else {
-            return (
-                <div className={classes.app}>
-                    <div className={classes.mainLogo}>
-                        <img src={logo} height="200px" alt="Logo"/>
-                        <button className={classes.enterButton} onClick={this.loginHandler}>Go</button>
-                    </div>
+            page = (
+                <div className={classes.mainLogo}>
+                    <img src={logo} height="200px" alt="Logo"/>
+                    <button className={classes.enterButton}
+                            onClick={this.loginHandler}>Go
+                    </button>
                 </div>
             );
         }
+
+        return (
+            <div className={classes.app}>
+                { page }
+            </div>
+        );
     }
 }
 
-export default Radium(App);
+export default App;

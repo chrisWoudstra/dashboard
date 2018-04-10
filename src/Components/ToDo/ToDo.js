@@ -52,7 +52,7 @@ class ToDo extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.inputValue != '') {
+        if (this.state.inputValue !== '') {
             const object = {
                 id: this.makeId(),
                 name: this.state.inputValue,
